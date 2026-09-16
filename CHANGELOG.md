@@ -5,6 +5,12 @@ All notable changes to the `mitm_collector_employee-de_ora` project will be docu
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.1.1] - 2026-09-16
+
+### Changed
+
+- **Assignment Logic:** Updated SQL extraction to use `COALESCE(ta.supervisor, e.supervisor)` for mapping the supervisor from `temp_assignment` to overwrite the origin.
+
 ## [v0.1.0] - 2026-09-15
 
 ### Added

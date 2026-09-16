@@ -510,7 +510,7 @@ func main() {
 		COALESCE(ta_o.orgid, o.orgid)                 AS orgid, 
 		COALESCE(ta_o.short, o.short)                 AS short, 
 		COALESCE(ta_o.parent_org_id, o.parent_org_id) AS parent_org_id,
-		CASE WHEN ta.pernr IS NOT NULL THEN NULL ELSE e.supervisor END AS supervisor,
+		COALESCE(ta.supervisor, e.supervisor)         AS supervisor,
 		COALESCE(ta_o.short, e.departmentcode)        AS departmentcode,
 		COALESCE(ta.costcenter, e.costcenter)       AS costcenter,
 		COALESCE(ta.personellarea, e.personellarea) AS personellarea,
