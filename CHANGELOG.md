@@ -5,11 +5,23 @@ All notable changes to the `mitm_collector_employee-de_ora` project will be docu
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.2.0] - 2026-09-20
+
+### Added
+- Added support for flexible JSON argument `db_where_in` to allow dynamic `WHERE IN` SQL filtering, replacing statically hardcoded filters.
+
+
 ## [v0.1.1] - 2026-09-16
 
 ### Changed
 
 - **Assignment Logic:** Updated SQL extraction to use `COALESCE(ta.supervisor, e.supervisor)` for mapping the supervisor from `temp_assignment` to overwrite the origin.
+
+## [Unreleased]
+
+### Added
+- Added support for flexible JSON argument `db_where_in` to allow dynamic `WHERE IN` SQL filtering, replacing statically hardcoded filters.
+
 
 ## [v0.1.0] - 2026-09-15
 
