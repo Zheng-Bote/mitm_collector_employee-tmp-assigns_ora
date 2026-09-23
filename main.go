@@ -46,8 +46,8 @@ import (
 
 var (
 	identifierRegex = regexp.MustCompile(`^[a-zA-Z0-9_]+$`)
-	appName         = "Oracle Employee-DE Collector"
-	appDescription  = "Extracts and joins employee data for DE/A1 from Oracle"
+	appName         = "Oracle Employee with temp assignment Collector"
+	appDescription  = "Extracts and joins employee data with temporary assignment from Oracle"
 	version         = "0.1.0"
 )
 
