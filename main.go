@@ -48,7 +48,7 @@ var (
 	identifierRegex = regexp.MustCompile(`^[a-zA-Z0-9_]+$`)
 	appName         = "Oracle Employee with temp assignment Collector"
 	appDescription  = "Extracts and joins employee data with temporary assignment from Oracle"
-	version         = "0.1.0"
+	version         = "0.2.1"
 )
 
 // TargetDBConfig defines parameters for the MitM target database passed via JSON CLI argument
@@ -461,7 +461,7 @@ func main() {
 		log.Fatalf("Failed to parse decrypted source config: %v", err)
 	}
 
-	ipc.SendAudit(fmt.Sprintf("DEBUG: Trying to connect to Oracle at %s:%d with Service '%s' (User: %s)", sourceCfg.Host, sourceCfg.Port, sourceCfg.Service, sourceCfg.User))
+	//ipc.SendAudit(fmt.Sprintf("DEBUG: Trying to connect to Oracle at %s:%d with Service '%s' (User: %s)", sourceCfg.Host, sourceCfg.Port, sourceCfg.Service, sourceCfg.User))
 
 	var oracleDSN string
 	if sourceCfg.DSN != "" {
@@ -515,7 +515,7 @@ func main() {
 		COALESCE(ta_o.orgid, o.orgid)                 AS orgid, 
 		COALESCE(ta_o.short, o.short)                 AS short, 
 		COALESCE(ta_o.parent_org_id, o.parent_org_id) AS parent_org_id,
-		COALESCE(ta.supervisor, e.supervisor)         AS supervisor,
+		COALESCE(ta.boss_pernr, e.supervisor)         AS supervisor,
 		COALESCE(ta_o.short, e.departmentcode)        AS departmentcode,
 		COALESCE(ta.costcenter, e.costcenter)       AS costcenter,
 		COALESCE(ta.personellarea, e.personellarea) AS personellarea,
