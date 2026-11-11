@@ -48,7 +48,7 @@ var (
 	identifierRegex = regexp.MustCompile(`^[a-zA-Z0-9_]+$`)
 	appName         = "Oracle Employee with temp assignment Collector"
 	appDescription  = "Extracts and joins employee data with temporary assignment from Oracle"
-	version         = "0.2.2"
+	version         = "0.2.3"
 )
 
 // TargetDBConfig defines parameters for the MitM target database passed via JSON CLI argument
@@ -491,7 +491,7 @@ func main() {
 		COALESCE(ta_o.orgid, o.orgid)                 AS orgid, 
 		COALESCE(ta_o.short, o.short)                 AS short, 
 		COALESCE(ta_o.parent_org_id, o.parent_org_id) AS parent_org_id,
-		COALESCE(ta.boss_pernr, e.supervisor)         AS supervisor,
+		COALESCE(ta.supervisor, e.supervisor)         AS supervisor,
 		COALESCE(ta_o.short, e.departmentcode)        AS departmentcode,
 		COALESCE(ta.costcenter, e.costcenter)       AS costcenter,
 		COALESCE(ta.personellarea, e.personellarea) AS personellarea,
